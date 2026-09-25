@@ -16,7 +16,7 @@
 - [x] Módulo RDS reutilizável
 - [x] Composição entre módulos (output de um alimenta input de outro)
 - [x] Dois ambientes (dev + staging) usando os mesmos módulos
-- [x] `terraform validate` e `terraform plan` sem erros nos dois ambientes
+- [ ] `terraform validate` e `terraform plan` sem erros nos dois ambientes
 - [x] README documentando cada módulo (inputs, outputs, exemplo)
 
 ## Evidência do terraform plan
@@ -25,18 +25,18 @@
 # terraform validate: OK — terraform plan: pendiente de credenciales AWS
 Comando falló (1): 'terraform plan -input=false'
 Changes to Outputs:
-  [32m+[0m[0m db_name = "technova_dev"
+  + db_name = "technova_dev"
 
 You can apply this plan to save these new output values to the Terraform
 state, without changing any real infrastructure.
-[31m╷[0m[0m
-[31m│[0m [0m[1m[31mError: [0m[0m[1mRetrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 8969b924-8039-44dc-ad96-96dc1f58e769, api error ExpiredToken: The security token included in the request is expired[0m
-[31m│[0m [0m
-[31m│[0m [0m[0m  with provider["registry.terraform.io/hashicorp/aws"],
-[31m│[0m [0m  on providers.tf line 12, in provider "aws":
-[31m│[0m [0m  12: provider "aws" [4m{[0m[0m
-[31m│[0m [0m
-[31m╵[0m[0m
+╷
+│ Error: Retrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 28749c2f-d758-4ed9-807c-24130d2ca1f1, api error ExpiredToken: The security token included in the request is expired
+│ 
+│   with provider["registry.terraform.io/hashicorp/aws"],
+│   on providers.tf line 12, in provider "aws":
+│   12: provider "aws" {
+│ 
+╵
 ```
 
 > ⚠️ El plan se detuvo con `ExpiredToken`: las credenciales del Learner Lab expiran. No es un error del código; al renovar las credenciales basta ejecutar de nuevo `terraform plan` en `environments/dev` y `environments/staging`.
