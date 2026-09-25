@@ -29,5 +29,29 @@
 
 ## Evidencia del terraform plan
 
-> ⚠️ Zenith no pudo propagar un `terraform plan` sin errores (normalmente requiere credenciales AWS Academy).
-> El código quedó generado y validado en el portfólio (`aula-05/`); completa la evidencia del plan tras configurar las credenciales del Learner Lab.
+```text
+# terraform validate: OK — terraform plan: bloqueado por el entorno AWS
+╷
+│ Error: Backend initialization required, please run "terraform init"
+│ 
+│ Reason: Initial configuration of the requested backend "s3"
+│ 
+│ The "backend" is the interface that Terraform uses to store state,
+│ perform operations, etc. If this message is showing up, it means that the
+│ Terraform configuration you're using is using a custom configuration for
+│ the Terraform backend.
+│ 
+│ Changes to backend configurations require reinitialization. This allows
+│ Terraform to set up the new configuration, copy existing state, etc. Please
+│ run
+│ "terraform init" with either the "-reconfigure" or "-migrate-state" flags
+│ to
+│ use the current configuration.
+│ 
+│ If the change reason above is incorrect, please verify your configuration
+│ hasn't changed and try again. At this point, no changes to your existing
+│ configuration or state have been made.
+╵
+```
+
+> ⚠️ Terraform no pudo conectar con AWS: credenciales del Learner Lab vencidas o bucket/tabla del remote state aún no creados. No es un error del código (`terraform validate` pasó en las dos stacks del portfólio). Al renovar las credenciales ejecuta `bash aula-05/scripts/capturar-evidencias.sh` y vuelve a correr Zenith.
