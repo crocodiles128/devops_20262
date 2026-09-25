@@ -23,14 +23,13 @@
 
 ```text
 # terraform validate: OK — terraform plan: pendiente de credenciales AWS
-Comando falló (1): 'terraform plan -input=false'
 Changes to Outputs:
   + db_name = "technova_dev"
 
 You can apply this plan to save these new output values to the Terraform
 state, without changing any real infrastructure.
 ╷
-│ Error: Retrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 28749c2f-d758-4ed9-807c-24130d2ca1f1, api error ExpiredToken: The security token included in the request is expired
+│ Error: Retrieving AWS account details: validating provider credentials: retrieving caller identity from STS: operation error STS: GetCallerIdentity, https response error StatusCode: 403, RequestID: 9197ea61-352f-424b-8105-c7afbc6e424e, api error ExpiredToken: The security token included in the request is expired
 │ 
 │   with provider["registry.terraform.io/hashicorp/aws"],
 │   on providers.tf line 12, in provider "aws":
