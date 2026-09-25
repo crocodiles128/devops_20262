@@ -10,20 +10,24 @@
 
 ## Evidências
 
-- [ ] VPC com subnets públicas e privadas em 2 AZs
-- [ ] RDS PostgreSQL (db.t3.micro) nas subnets privadas
-- [ ] EC2 t2.micro na subnet pública, conectando ao RDS
-- [ ] Security Groups corretos (porta 5432 apenas da VPC)
-- [ ] Remote State configurado (S3 + DynamoDB)
+- [x] VPC com subnets públicas e privadas em 2 AZs
+- [x] RDS PostgreSQL (db.t3.micro) nas subnets privadas
+- [x] EC2 t2.micro na subnet pública, conectando ao RDS
+- [x] Security Groups corretos (porta 5432 apenas da VPC)
+- [x] Remote State configurado (S3 + DynamoDB)
 - [ ] State armazenado no S3 (evidência abaixo)
 - [ ] Conexão EC2 → RDS via psql (evidência abaixo)
 - [ ] `terraform destroy` executado após evidências
 
 ## Evidência do State no S3
 
-> ⚠️ Zenith no pudo propagar un `terraform plan` sin errores (normalmente requiere credenciales AWS Academy).
-> El código quedó generado y validado en el portfólio (`aula-XX/`); completa la evidencia del plan tras configurar las credenciales del Learner Lab.
+> ⚠️ Pendiente de ejecución real: con credenciales AWS válidas corre `bash scripts/capturar-evidencias.sh` y el `aws s3 ls` aparecerá aquí (vuelve a ejecutar Zenith).
 
 ## Evidência da Conexão EC2 → RDS
 
-[Cole aqui o output do psql ou screenshot]
+> ⚠️ Pendiente de ejecución real: prueba la conexión `EC2 → RDS` con `psql` (`terraform output ec2_ssh_command`) o usa `bash scripts/capturar-evidencias.sh`.
+
+## Evidencia del terraform plan
+
+> ⚠️ Zenith no pudo propagar un `terraform plan` sin errores (normalmente requiere credenciales AWS Academy).
+> El código quedó generado y validado en el portfólio (`aula-05/`); completa la evidencia del plan tras configurar las credenciales del Learner Lab.
